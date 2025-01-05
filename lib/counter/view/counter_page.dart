@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nota_mais/counter/counter.dart';
 import 'package:nota_mais/l10n/l10n.dart';
-import 'package:nota_mais/login/widgets/loginFormField.dart';
+import 'package:nota_mais/login/widgets/login_form_field.dart';
 import 'package:nota_mais/ui/widgets/text_form_field_light_widget.dart';
 
 class CounterPage extends StatelessWidget {
@@ -25,17 +25,17 @@ class CounterView extends StatelessWidget {
     final l10n = context.l10n;
     return Scaffold(
       appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
-      body: Center(
+      body: const Center(
         child: Column(children: [
-          const CounterText(),
+           CounterText(),
           LoginFormField(
             hintText: 'Email',
           ),
-          const SizedBox(height: 45, width: 10),
+           SizedBox(height: 45, width: 10),
           LoginFormField(
             hintText: 'Senha',
-          )
-        ]),
+          ),
+        ],),
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,

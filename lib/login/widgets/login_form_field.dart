@@ -1,13 +1,11 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 import 'package:nota_mais/ui/widgets/text_form_field_light_widget.dart';
 import 'package:nota_mais/utils/constants/color_const.dart';
 
 class LoginFormField extends StatelessWidget {
-  LoginFormField({this.hintText, super.key});
+  const LoginFormField({this.hintText, super.key});
 
-  String? hintText;
+  final String? hintText;
 
   @override
   Widget build(BuildContext context) {

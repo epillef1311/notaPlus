@@ -152,8 +152,8 @@ class _TextFormFieldLightWidgetState extends State<TextFormFieldLightWidget> {
           hintText: widget.hintText,
           hintStyle: widget.hintStyle,
           contentPadding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 16,
+            horizontal: 29,
+            vertical: 12,
           ),
           alignLabelWithHint: false,
           floatingLabelBehavior: widget.floatingLabelBehavior,

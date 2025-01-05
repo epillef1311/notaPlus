@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nota_mais/counter/counter.dart';
 import 'package:nota_mais/l10n/l10n.dart';
 import 'package:nota_mais/login/view/login_view.dart';
 
