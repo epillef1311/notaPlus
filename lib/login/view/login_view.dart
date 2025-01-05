@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nota_mais/l10n/l10n.dart';
 import 'package:nota_mais/login/widgets/login_form_field.dart';
+import 'package:nota_mais/ui/widgets/main_elevated_button.dart';
 import 'package:nota_mais/utils/constants/color_const.dart';
 
 class LoginView extends StatelessWidget {
@@ -49,6 +50,13 @@ class LoginView extends StatelessWidget {
               const LoginFormField(
                 hintText: 'Senha',
               ),
+              const SizedBox(height: 28,),
+              MainElevatedButton(buttonText: 'Entrar', color: vermelho),
+              const SizedBox(height: 8,),
+              Text(l10n.esqueceuSenha, style: TextStyle(
+                fontSize: 15, fontFamily: 'Quicksand', color: branco,),),
+              const SizedBox(height: 30,),
+              MainElevatedButton(buttonText: 'Criar conta', color: verde),
             ],
           ),
         ),
