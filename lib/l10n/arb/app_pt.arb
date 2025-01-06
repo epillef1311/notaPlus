@@ -5,6 +5,6 @@
     "description": "Texto exibido na AppBar da página do contador"
   },
   "email": "Email",
-  "senha": "senha",
+  "senha": "Senha",
   "esqueceuSenha": "Esqueceu a senha?"
 }
