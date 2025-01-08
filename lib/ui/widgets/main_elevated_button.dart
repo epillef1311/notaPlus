@@ -22,7 +22,7 @@ class MainElevatedButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          minimumSize: const Size(287,48),
+          minimumSize: const Size(287, 48),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),

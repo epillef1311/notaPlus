@@ -3,6 +3,10 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get_it/get_it.dart';
+import 'package:nota_mais/di/core_di.dart';
+import 'package:nota_mais/login/view/login_view.dart';
+import 'package:nota_mais/routes/routes.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -26,6 +30,14 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   };
 
   Bloc.observer = const AppBlocObserver();
+
+  await CoreDi.init(
+    getIt: GetIt.instance,
+    routes: routes,
+    shellRoutes: shellRoutes,
+    shellWrapper: (child) => const LoginView(),
+    initialLocation: LoginView.route,
+  );
 
   await runZonedGuarded(
     () async => runApp(await builder()),

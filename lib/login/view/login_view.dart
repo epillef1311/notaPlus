@@ -7,6 +7,7 @@ import 'package:nota_mais/utils/constants/color_const.dart';
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
+  static String route = '/Login';
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,9 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       body: DecoratedBox(
         decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage('assets/images/schoolbc.png'), fit: BoxFit.cover,
+          image: DecorationImage(
+            image: AssetImage('assets/images/schoolbc.png'),
+            fit: BoxFit.cover,
           ),
         ),
         child: Center(
@@ -31,37 +34,60 @@ class LoginView extends StatelessWidget {
                 child: Text(
                   l10n.email,
                   style: TextStyle(
-                      fontSize: 20, fontFamily: 'Quicksand', color: branco,),
+                    fontSize: 20,
+                    fontFamily: 'Quicksand',
+                    color: branco,
+                  ),
                 ),
               ),
               const LoginFormField(
                 hintText: 'Email',
               ),
-              const SizedBox(height: 11,),
+              const SizedBox(
+                height: 11,
+              ),
               SizedBox(
                 height: 36,
                 width: 325,
                 child: Text(
                   l10n.senha,
                   style: TextStyle(
-                    fontSize: 20, fontFamily: 'Quicksand', color: branco,),
+                    fontSize: 20,
+                    fontFamily: 'Quicksand',
+                    color: branco,
+                  ),
                 ),
               ),
               const LoginFormField(
                 hintText: 'Senha',
               ),
-              const SizedBox(height: 28,),
+              const SizedBox(
+                height: 28,
+              ),
               MainElevatedButton(buttonText: 'Entrar', color: vermelho),
-              const SizedBox(height: 8,),
-              Text(l10n.esqueceuSenha, style: TextStyle(
-                fontSize: 15, fontFamily: 'Quicksand', color: branco,),),
-              const SizedBox(height: 30,),
-              MainElevatedButton(buttonText: 'Criar conta', color: verde),
+              const SizedBox(
+                height: 8,
+              ),
+              Text(
+                l10n.esqueceuSenha,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontFamily: 'Quicksand',
+                  color: branco,
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              MainElevatedButton(
+                buttonText: 'Criar conta',
+                color: verde,
+                onPressed: () {},
+              ),
             ],
           ),
         ),
       ),
-      backgroundColor: verde,
     );
   }
 }

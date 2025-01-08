@@ -13,15 +13,15 @@ class LoginFormField extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: cinzaClaro,
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black54,
-                spreadRadius: 0.1,
-                blurRadius: 20,
-                offset: Offset(5, 10),
-            ),
-          ],
-        ),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black54,
+            spreadRadius: 0.1,
+            blurRadius: 20,
+            offset: Offset(5, 10),
+          ),
+        ],
+      ),
       height: 48,
       width: 325,
       child: TextFormFieldLightWidget(
