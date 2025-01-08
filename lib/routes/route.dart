@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nota_mais/di/core_di.dart';
 
+
 class ApiRoute {
   ApiRoute({
     required this.path,

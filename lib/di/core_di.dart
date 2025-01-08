@@ -1,10 +1,15 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 import 'package:nota_mais/login/view/login_view.dart';
 import 'package:nota_mais/routes/route.dart';
+import 'package:nota_mais/utils/lock.dart';
 import 'package:nota_mais/utils/navigation/navigations_keys.dart';
+export 'package:nota_mais/utils/navigation/navigations_keys.dart';
 
 class CoreDi {
+  // ignore: use_late_for_private_fields_and_variables
+  static final _lock = Lock();
   // ignore: use_late_for_private_fields_and_variables
   static GetIt? _getIt;
 
@@ -16,7 +21,8 @@ class CoreDi {
     required List<ApiRoute> shellRoutes,
     required Widget Function(Widget child) shellWrapper,
     required String initialLocation,
-  }) async {
+  }) async =>
+  _lock.syncRunOnce(() async {
     _getIt = getIt;
     getIt
       ..registerLazySingleton<NavigationKeys>(NavigationKeys.new)
@@ -29,4 +35,5 @@ class CoreDi {
         ),
       );
   }
+  );
 }

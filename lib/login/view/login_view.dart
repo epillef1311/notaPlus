@@ -82,7 +82,6 @@ class LoginView extends StatelessWidget {
               MainElevatedButton(
                 buttonText: 'Criar conta',
                 color: verde,
-                onPressed: () {},
               ),
             ],
           ),

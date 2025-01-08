@@ -31,6 +31,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   Bloc.observer = const AppBlocObserver();
 
+  WidgetsFlutterBinding.ensureInitialized();
   await CoreDi.init(
     getIt: GetIt.instance,
     routes: routes,
