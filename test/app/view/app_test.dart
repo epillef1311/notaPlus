@@ -6,7 +6,6 @@ import 'package:nota_mais/di/core_di.dart';
 import 'package:nota_mais/l10n/l10n.dart';
 import 'package:nota_mais/login/view/login_view.dart';
 
-
 void main() {
   group('App', () {
     testWidgets('renders LoginView', (tester) async {
@@ -15,7 +14,8 @@ void main() {
       await diInit(getIt);
 
       await tester.pumpWidget(
-        WrapperWidget(home: LoginView(),
+        WrapperWidget(
+          home: LoginView(),
         ),
       );
 
@@ -25,20 +25,22 @@ void main() {
     testWidgets('', (tester) async {
       final getIt = GetIt.instance;
 
-       await diInit(getIt);
+      await diInit(getIt);
 
       await tester.pumpWidget(
-        WrapperWidget(home: LoginView(),
+        WrapperWidget(
+          home: LoginView(),
         ),
       );
 
       expect(find.byType(Image), findsOneWidget);
 
       final imageFinder = find.byWidgetPredicate(
-            (widget) =>
-        widget is Image &&
+        (widget) =>
+            widget is Image &&
             widget.image is AssetImage &&
-            (widget.image as AssetImage).assetName == 'assets/images/NotaLogo.png',
+            (widget.image as AssetImage).assetName ==
+                'assets/images/NotaLogo.png',
       );
 
       expect(imageFinder, findsOneWidget);
@@ -65,18 +67,13 @@ void main() {
   });
 }
 
-
-
-
-
-
 class WrapperWidget extends StatelessWidget {
   const WrapperWidget({
-    required this.home, super.key,
+    required this.home,
+    super.key,
   });
 
   final Widget home;
-
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +85,7 @@ class WrapperWidget extends StatelessWidget {
   }
 }
 
-Future<void> diInit(GetIt getIt) async{
+Future<void> diInit(GetIt getIt) async {
   await Di.init(
     getIt: getIt,
     routes: routes,
