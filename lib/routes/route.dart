@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nota_mais/di/core_di.dart';
 
-
 class ApiRoute {
   ApiRoute({
     required this.path,
@@ -29,8 +28,8 @@ class ApiRouter {
   final List<ApiRoute> shellRoutes;
   final Widget Function(Widget child) shellWrapper;
   final String initialLocation;
-  final _shellNavigatorKey = CoreDi.getIt<NavigationKeys>().shellKey;
-  final _rootNavigatorKey = CoreDi.getIt<NavigationKeys>().rootKey;
+  final _shellNavigatorKey = Di.getIt<NavigationKeys>().shellKey;
+  final _rootNavigatorKey = Di.getIt<NavigationKeys>().rootKey;
 
   late final GoRouter _router = GoRouter(
     navigatorKey: _rootNavigatorKey,
