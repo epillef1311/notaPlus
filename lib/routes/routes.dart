@@ -1,24 +1,18 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nota_mais/login/view/login_view.dart';
 import 'package:nota_mais/login/view/register_view.dart';
-import 'package:nota_mais/login/view/test_view.dart';
-import 'package:nota_mais/routes/route.dart';
 
-List<ApiRoute> shellRoutes = [
-  ApiRoute(
-    path: TestView.route,
-    builder: (state) => TestView(
-      key: state.pageKey,
+final routers = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const LoginView(),
     ),
-  ),
-];
-
-List<ApiRoute> routes = [
-  ApiRoute(
-    path: LoginView.route,
-    builder: (state) => LoginView(),
-  ),
-  ApiRoute(
-    path: RegisterView.route,
-    builder: (state) => const RegisterView(),
-  ),
-];
+    GoRoute(
+      path: '/register-view',
+      pageBuilder: (context, state) =>
+          const MaterialPage(child: RegisterView(), fullscreenDialog: true),
+    ),
+  ],
+);

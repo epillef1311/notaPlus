@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:nota_mais/l10n/l10n.dart';
-import 'package:nota_mais/login/view/login_view.dart';
+
+import 'package:nota_mais/routes/routes.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(
         appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
         colorScheme: ColorScheme.fromSwatch(
@@ -16,7 +17,9 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: LoginView(),
+      routerDelegate: routers.routerDelegate,
+      routeInformationParser: routers.routeInformationParser,
+      routeInformationProvider: routers.routeInformationProvider,
     );
   }
 }

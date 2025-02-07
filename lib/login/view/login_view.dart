@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:nota_mais/di/core_di.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nota_mais/l10n/l10n.dart';
-import 'package:nota_mais/login/view/register_view.dart';
 import 'package:nota_mais/login/widgets/login_form_field.dart';
 import 'package:nota_mais/ui/widgets/main_elevated_button.dart';
 import 'package:nota_mais/utils/constants/color_const.dart';
 
 class LoginView extends StatelessWidget {
-  LoginView({super.key});
+  const LoginView({super.key});
 
   static String route = '/Login';
-  final router = Di.getIt<ApiRouter>().router;
 
   @override
   Widget build(BuildContext context) {
@@ -33,37 +31,15 @@ class LoginView extends StatelessWidget {
                   width: double.infinity,
                   child: Image.asset('assets/images/NotaLogo.png'),
                 ),
-                SizedBox(
-                  height: 36,
-                  width: 325,
-                  child: Text(
-                    l10n.email,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'Quicksand',
-                      color: branco,
-                    ),
-                  ),
-                ),
-                const LoginFormField(
+                LoginFormField(
+                  title: l10n.email,
                   hintText: 'Email',
                 ),
                 const SizedBox(
                   height: 11,
                 ),
-                SizedBox(
-                  height: 36,
-                  width: 325,
-                  child: Text(
-                    l10n.senha,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'Quicksand',
-                      color: branco,
-                    ),
-                  ),
-                ),
-                const LoginFormField(
+                LoginFormField(
+                  title: l10n.senha,
                   hintText: 'Senha',
                 ),
                 const SizedBox(
@@ -89,10 +65,10 @@ class LoginView extends StatelessWidget {
                   height: 30,
                 ),
                 MainElevatedButton(
-                  buttonText: 'Criar conta',
+                  buttonText: l10n.criarConta,
                   color: verde,
                   onPressed: () {
-                    router.go(RegisterView.route);
+                    context.push('/register-view');
                   },
                 ),
               ],

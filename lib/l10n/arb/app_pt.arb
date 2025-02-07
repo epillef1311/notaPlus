@@ -6,5 +6,11 @@
   },
   "email": "Email",
   "senha": "Senha",
-  "esqueceuSenha": "Esqueceu a senha?"
+  "esqueceuSenha": "Esqueceu a senha?",
+  "insiraInfoAbaixo": "Insira as informações no campo abaixo",
+  "nomeCompleto": "Nome completo",
+  "dataNascimento": "Data de nascimento",
+  "confirmeSenha": "Confirme a senha",
+  "cadastrar": "Cadastrar",
+  "criarConta": "Criar conta"
 }
