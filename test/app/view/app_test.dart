@@ -1,20 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get_it/get_it.dart';
-import 'package:nota_mais/di/core_di.dart';
 import 'package:nota_mais/l10n/l10n.dart';
 import 'package:nota_mais/login/view/login_view.dart';
 
 void main() {
   group('App', () {
     testWidgets('renders LoginView', (tester) async {
-      final getIt = GetIt.instance;
-
-      await diInit(getIt);
-
       await tester.pumpWidget(
-        WrapperWidget(
+        const WrapperWidget(
           home: LoginView(),
         ),
       );
@@ -23,12 +16,8 @@ void main() {
     });
 
     testWidgets('', (tester) async {
-      final getIt = GetIt.instance;
-
-      await diInit(getIt);
-
       await tester.pumpWidget(
-        WrapperWidget(
+        const WrapperWidget(
           home: LoginView(),
         ),
       );
@@ -47,11 +36,7 @@ void main() {
     });
 
     testWidgets('bbbb', (tester) async {
-      final getIt = GetIt.instance;
-
-      await diInit(getIt);
-
-      await tester.pumpWidget(WrapperWidget(home: LoginView()));
+      await tester.pumpWidget(const WrapperWidget(home: LoginView()));
 
       final decoratedBoxFinder = find.byKey(const Key('decoratedBox-key'));
 
@@ -83,14 +68,4 @@ class WrapperWidget extends StatelessWidget {
       home: home,
     );
   }
-}
-
-Future<void> diInit(GetIt getIt) async {
-  await Di.init(
-    getIt: getIt,
-    routes: routes,
-    shellRoutes: shellRoutes,
-    shellWrapper: (child) => child,
-    initialLocation: '/',
-  );
 }
