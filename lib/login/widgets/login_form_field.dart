@@ -3,10 +3,17 @@ import 'package:nota_mais/ui/widgets/text_form_field_light_widget.dart';
 import 'package:nota_mais/utils/constants/color_const.dart';
 
 class LoginFormField extends StatelessWidget {
-  const LoginFormField({this.title, this.hintText, super.key});
+  const LoginFormField(
+      {this.title,
+      this.hintText,
+      this.controller,
+      this.obscureText = false,
+      super.key,});
 
   final String? hintText;
   final String? title;
+  final TextEditingController? controller;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +48,8 @@ class LoginFormField extends StatelessWidget {
           height: 48,
           width: 325,
           child: TextFormFieldLightWidget(
+            controller: controller,
+            obscureText: obscureText,
             hintText: hintText,
             hintStyle: TextStyle(
               color: cinzaEscuro,

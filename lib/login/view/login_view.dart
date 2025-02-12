@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nota_mais/l10n/l10n.dart';
+import 'package:nota_mais/login/view/register_view.dart';
 import 'package:nota_mais/login/widgets/login_form_field.dart';
 import 'package:nota_mais/ui/widgets/main_elevated_button.dart';
 import 'package:nota_mais/utils/constants/color_const.dart';
@@ -33,20 +34,20 @@ class LoginView extends StatelessWidget {
                 ),
                 LoginFormField(
                   title: l10n.email,
-                  hintText: 'Email',
+                  hintText: l10n.email,
                 ),
                 const SizedBox(
                   height: 11,
                 ),
                 LoginFormField(
                   title: l10n.senha,
-                  hintText: 'Senha',
+                  hintText: l10n.senha,
                 ),
                 const SizedBox(
                   height: 28,
                 ),
                 MainElevatedButton(
-                  buttonText: 'Entrar',
+                  buttonText: l10n.entrar,
                   color: vermelho,
                   onPressed: () {},
                 ),
@@ -68,7 +69,7 @@ class LoginView extends StatelessWidget {
                   buttonText: l10n.criarConta,
                   color: verde,
                   onPressed: () {
-                    context.push('/register-view');
+                    context.push(RegisterView.route);
                   },
                 ),
               ],
