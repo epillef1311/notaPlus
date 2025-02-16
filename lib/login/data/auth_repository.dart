@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:nota_mais/utils/environment/environment.dart';
 
 class AuthRepository {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: 'http://10.0.2.2:8080',
+      baseUrl: Environment.baseUrlLocal,
       connectTimeout: const Duration(seconds: 10),
       receiveTimeout: const Duration(seconds: 10),
       headers: {'Content-Type': 'application/json'},
