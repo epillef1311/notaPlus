@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:nota_mais/auth/domain/auth_repository.dart';
+import 'package:nota_mais/auth/widgets/login_form_field.dart';
 import 'package:nota_mais/l10n/l10n.dart';
-import 'package:nota_mais/login/data/auth_repository.dart';
-import 'package:nota_mais/login/widgets/login_form_field.dart';
 import 'package:nota_mais/ui/widgets/main_elevated_button.dart';
 import 'package:nota_mais/utils/constants/color_const.dart';
 
@@ -24,11 +25,12 @@ class _RegisterViewState extends State<RegisterView> {
   final TextEditingController _senhaController = TextEditingController();
   final TextEditingController _confirmeSenhaController =
       TextEditingController();
-  final _authRepository = AuthRepository();
-
+  late final GetIt getIt;
+  late final AuthRepository authRepo;
 
   @override
   Widget build(BuildContext context) {
+    authRepo =getIt.get<AuthRepository>();
     final l10n = context.l10n;
     return Scaffold(
       body: DecoratedBox(
@@ -103,7 +105,7 @@ class _RegisterViewState extends State<RegisterView> {
                       buttonText: l10n.cadastrar,
                       color: vermelho,
                       onPressed: () async {
-                        await _authRepository.registerUser(
+                        await authRepo.registerUser(
                             nome: _nomeController.text,
                             email: _emailController.text,
                             dataNascimento: _dataNascimentoController.text,

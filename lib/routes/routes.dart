@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nota_mais/login/view/login_view.dart';
-import 'package:nota_mais/login/view/register_view.dart';
+import 'package:nota_mais/auth/view/login_view.dart';
+
+import 'package:nota_mais/auth/view/register_view.dart';
 
 final routers = GoRouter(
   routes: [

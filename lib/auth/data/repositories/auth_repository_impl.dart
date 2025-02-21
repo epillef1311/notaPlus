@@ -1,8 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:nota_mais/auth/domain/auth_repository.dart';
 import 'package:nota_mais/utils/environment/environment.dart';
 
-class AuthRepository {
-  final Dio _dio = Dio(
+class AuthRepositoryImpl implements AuthRepository {
+
+  AuthRepositoryImpl()
+      : _dio = Dio(
     BaseOptions(
       baseUrl: Environment.baseUrlLocal,
       connectTimeout: const Duration(seconds: 10),
@@ -11,6 +14,9 @@ class AuthRepository {
     ),
   );
 
+  final Dio _dio;
+
+  @override
   Future<bool> registerUser({
     required String nome,
     required String email,
