@@ -1,9 +1,6 @@
-
-
 import 'package:dotenv/dotenv.dart';
 
 class Environment {
-
   static final DotEnv _env = DotEnv();
 
   static void load() {

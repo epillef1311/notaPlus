@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nota_mais/auth/view/register_view.dart';
+import 'package:nota_mais/auth/widgets/login_form_field.dart';
 import 'package:nota_mais/l10n/l10n.dart';
 import 'package:nota_mais/ui/widgets/main_elevated_button.dart';
 import 'package:nota_mais/utils/constants/color_const.dart';
-
-import '../widgets/login_form_field.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -57,7 +56,7 @@ class LoginView extends StatelessWidget {
                 ),
                 Text(
                   l10n.esqueceuSenha,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 15,
                     fontFamily: 'Quicksand',
                     color: branco,

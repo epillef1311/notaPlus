@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:nota_mais/ui/widgets/text_form_field_light_widget.dart';
+
 import 'package:nota_mais/utils/constants/color_const.dart';
 
-class LoginFormField extends StatelessWidget {
-  const LoginFormField({
+class DatePickerWidget extends StatefulWidget {
+  const DatePickerWidget({
+    required this.controller,
     this.title,
-    this.hintText,
-    this.controller,
-    this.obscureText = false,
+    this.color = salmao,
     super.key,
   });
-
-  final String? hintText;
+  final TextEditingController controller;
+  final Color color;
   final String? title;
-  final TextEditingController? controller;
-  final bool obscureText;
 
+  @override
+  State<DatePickerWidget> createState() => _DatePickerWidgetState();
+}
+
+class _DatePickerWidgetState extends State<DatePickerWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,12 +28,9 @@ class LoginFormField extends StatelessWidget {
           height: 36,
           width: 325,
           child: Text(
-            title ?? '',
+            widget.title ?? '',
             style: const TextStyle(
-              fontSize: 20,
-              fontFamily: 'Quicksand',
-              color: branco,
-            ),
+                fontSize: 20, fontFamily: 'Quicksand', color: branco,),
           ),
         ),
         Container(
@@ -49,17 +49,27 @@ class LoginFormField extends StatelessWidget {
           height: 48,
           width: 325,
           child: TextFormFieldLightWidget(
-            controller: controller,
-            obscureText: obscureText,
-            hintText: hintText,
-            hintStyle: const TextStyle(
-              color: cinzaEscuro,
-              fontSize: 18,
-              fontFamily: 'Quicksand',
-            ),
+            controller: widget.controller,
+            prefixIcon: const Icon(Icons.calendar_today),
+            readOnly: true,
+            onTap: _selectDate,
           ),
         ),
       ],
     );
+  }
+
+  Future<void> _selectDate() async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1985),
+      lastDate: DateTime(2100),
+    );
+    if (picked != null) {
+      setState(() {
+        widget.controller.text = picked.toString().split(' ')[0];
+      });
+    }
   }
 }

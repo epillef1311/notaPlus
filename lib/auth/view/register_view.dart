@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:nota_mais/auth/domain/auth_repository.dart';
 import 'package:nota_mais/auth/widgets/login_form_field.dart';
 import 'package:nota_mais/l10n/l10n.dart';
+import 'package:nota_mais/ui/widgets/date_picker_widget.dart';
 import 'package:nota_mais/ui/widgets/main_elevated_button.dart';
 import 'package:nota_mais/utils/constants/color_const.dart';
 
@@ -23,14 +24,13 @@ class _RegisterViewState extends State<RegisterView> {
   final TextEditingController _dataNascimentoController =
       TextEditingController();
   final TextEditingController _senhaController = TextEditingController();
+  // ignore: unused_field
   final TextEditingController _confirmeSenhaController =
       TextEditingController();
-  late final GetIt getIt;
-  late final AuthRepository authRepo;
 
   @override
   Widget build(BuildContext context) {
-    authRepo =getIt.get<AuthRepository>();
+    final authRepo = GetIt.instance.get<AuthRepository>();
     final l10n = context.l10n;
     return Scaffold(
       body: DecoratedBox(
@@ -56,7 +56,7 @@ class _RegisterViewState extends State<RegisterView> {
                     width: 278,
                     child: Text(
                       l10n.insiraInfoAbaixo,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: branco,
                         fontSize: 16,
                         fontFamily: 'Quicksand',
@@ -81,7 +81,7 @@ class _RegisterViewState extends State<RegisterView> {
                   const SizedBox(
                     height: 13,
                   ),
-                  LoginFormField(
+                  DatePickerWidget(
                     title: l10n.dataNascimento,
                     controller: _dataNascimentoController,
                   ),
@@ -102,15 +102,17 @@ class _RegisterViewState extends State<RegisterView> {
                     height: 57,
                   ),
                   MainElevatedButton(
-                      buttonText: l10n.cadastrar,
-                      color: vermelho,
-                      onPressed: () async {
-                        await authRepo.registerUser(
-                            nome: _nomeController.text,
-                            email: _emailController.text,
-                            dataNascimento: _dataNascimentoController.text,
-                            password: _senhaController.text,);
-                      },),
+                    buttonText: l10n.cadastrar,
+                    color: vermelho,
+                    onPressed: () async {
+                      await authRepo.registerUser(
+                        nome: _nomeController.text,
+                        email: _emailController.text,
+                        dataNascimento: _dataNascimentoController.text,
+                        password: _senhaController.text,
+                      );
+                    },
+                  ),
                 ],
               ),
             ),

@@ -29,6 +29,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   Bloc.observer = const AppBlocObserver();
   final getIt = GetIt.instance;
+
   await AuthDi.init(getIt: getIt);
 
   await runZonedGuarded(

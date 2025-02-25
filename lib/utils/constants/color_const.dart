@@ -1,15 +1,15 @@
 import 'dart:ui';
 
-Color lilas = const Color(0xFFA78BFA);
+const Color lilas = Color(0xFFA78BFA);
 
-Color verde = const Color(0xFFB4D22D);
+const Color verde = Color(0xFFB4D22D);
 
-Color branco = const Color(0xFFE6E6E6);
+const Color branco = Color(0xFFE6E6E6);
 
-Color salmao = const Color(0xFFF26E50);
+const Color salmao = Color(0xFFF26E50);
 
-Color vermelho = const Color(0xFFF35252);
+const Color vermelho = Color(0xFFF35252);
 
-Color cinzaClaro = const Color(0xFFD9D9D9);
+const Color cinzaClaro = Color(0xFFD9D9D9);
 
-Color cinzaEscuro = const Color(0xFF888787);
+const Color cinzaEscuro = Color(0xFF888787);

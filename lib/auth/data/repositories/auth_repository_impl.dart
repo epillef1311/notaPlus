@@ -3,16 +3,15 @@ import 'package:nota_mais/auth/domain/auth_repository.dart';
 import 'package:nota_mais/utils/environment/environment.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
-
   AuthRepositoryImpl()
       : _dio = Dio(
-    BaseOptions(
-      baseUrl: Environment.baseUrlLocal,
-      connectTimeout: const Duration(seconds: 10),
-      receiveTimeout: const Duration(seconds: 10),
-      headers: {'Content-Type': 'application/json'},
-    ),
-  );
+          BaseOptions(
+            baseUrl: Environment.baseUrlLocal,
+            connectTimeout: const Duration(seconds: 10),
+            receiveTimeout: const Duration(seconds: 10),
+            headers: {'Content-Type': 'application/json'},
+          ),
+        );
 
   final Dio _dio;
 
@@ -24,6 +23,7 @@ class AuthRepositoryImpl implements AuthRepository {
     required String password,
   }) async {
     try {
+      // ignore: inference_failure_on_function_invocation
       final response = await _dio.post(
         '/teacher',
         data: {
